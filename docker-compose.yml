@@ -1,0 +1,17 @@
+version: "3.9"
+name: mariadb_for_everyone
+services:
+  db:
+    image: mariadb:11.1.2
+    restart: always
+    volumes:
+      - type: volume
+        source: mariadb
+        target: /var/lib/mysql
+    env_file:
+      - .env
+    ports:
+      - 127.0.0.1:3306:3306
+
+volumes:
+  mariadb:
